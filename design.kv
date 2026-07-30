@@ -1,0 +1,30 @@
+BoxLayout:
+    orientation: "vertical"
+    padding: "8dp"
+    spacing: "6dp"
+
+    ScrollView:
+        do_scroll_x: False
+
+        Label:
+            id: chat
+            text: "🤖 KHALIL AI\n"
+            size_hint_y: None
+            text_size: self.width, None
+            height: self.texture_size[1]
+            halign: "left"
+            valign: "top"
+
+    TextInput:
+        id: message
+        hint_text: "Type a message..."
+        multiline: False
+        size_hint_y: None
+        height: "40dp"
+        on_text_validate: app.send_message()
+
+    Button:
+        text: "Send"
+        size_hint_y: None
+        height: "40dp"
+        on_press: app.send_message()
